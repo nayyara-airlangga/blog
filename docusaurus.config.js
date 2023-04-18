@@ -11,7 +11,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Gweh Angga',
-  tagline: 'Just a guy trying to get better everyday',
+  tagline: "I strive to be better each day and here's my journey",
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -51,6 +51,8 @@ const config = {
         /* }, */
         docs: false,
         blog: {
+          blogDescription:
+            'The reflections and thoughts of a man striving to be better. Write about tech and occasionally other things',
           showReadingTime: true,
           routeBasePath: '/blog'
         },
@@ -91,9 +93,10 @@ const config = {
           /* }, */
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right'
+            href: `https://github.com/${process.env.GH_USER}`,
+            className: 'header-github-link',
+            position: 'right',
+            'aria-label': 'My GitHub Account'
           }
         ]
       },
@@ -109,23 +112,23 @@ const config = {
           /*     } */
           /*   ] */
           /* }, */
-          /* { */
-          /*   title: 'Community', */
-          /*   items: [ */
-          /*     { */
-          /*       label: 'Stack Overflow', */
-          /*       href: 'https://stackoverflow.com/questions/tagged/docusaurus' */
-          /*     }, */
-          /*     { */
-          /*       label: 'Discord', */
-          /*       href: 'https://discordapp.com/invite/docusaurus' */
-          /*     }, */
-          /*     { */
-          /*       label: 'Twitter', */
-          /*       href: 'https://twitter.com/docusaurus' */
-          /*     } */
-          /*   ] */
-          /* }, */
+          {
+            title: 'Contacts',
+            items: [
+              {
+                label: 'GitHub',
+                href: `https://github.com/${process.env.GH_USER}`
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/nayyara-airlangga-raharjo'
+              },
+              {
+                label: 'Email',
+                href: 'mailto:nayyara.airlangga@gmail.com'
+              }
+            ]
+          },
           {
             title: 'More',
             items: [
