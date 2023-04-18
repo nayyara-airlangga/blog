@@ -2,15 +2,15 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config();
+  require('dotenv').config()
 }
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Gweh Angga',
+  title: 'Angga',
   tagline: "I strive to be better each day and here's my journey",
   favicon: 'img/favicon.ico',
 
@@ -52,7 +52,7 @@ const config = {
         docs: false,
         blog: {
           blogDescription:
-            'The reflections and thoughts of a man striving to be better. Write about tech and occasionally other things',
+            'The reflections and thoughts of a man striving to be better. Writes about tech and occasionally other things',
           showReadingTime: true,
           routeBasePath: '/blog'
         },
@@ -78,9 +78,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/me.png',
       navbar: {
-        title: 'Gweh Angga',
+        title: 'Angga',
         logo: {
-          alt: 'Gweh Angga Logo',
+          alt: 'Angga Logo',
           src: 'img/me.png'
         },
         items: [
@@ -143,13 +143,13 @@ const config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Gweh Angga`
+        copyright: `Copyright © ${new Date().getFullYear()} Angga`
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme
       }
     })
-};
+}
 
-module.exports = config;
+module.exports = config

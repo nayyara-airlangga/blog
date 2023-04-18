@@ -4,10 +4,33 @@
  */
 
 .heroBanner {
+  background-color: var(--ifm-background-color);
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.heroTextPrimary {
+  color: var(--ifm-color-primary);
+}
+
+.heroText {
+  color: var(--ifm-color-black);
+}
+
+
+[data-theme='dark'] .heroText {
+  color: var(--ifm-color-white);
+}
+
+.heroButtonPrimary {
+  background-color: var(--ifm-color-primary);
+  border: none;
+}
+
+.heroButtonPrimary:hover {
+  background-color: var(--ifm-color-primary-darker);
 }
 
 @media screen and (max-width: 996px) {
