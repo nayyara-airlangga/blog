@@ -12,10 +12,12 @@
 }
 
 .heroTextPrimary {
+  text-align: left;
   color: var(--ifm-color-primary);
 }
 
 .heroText {
+  text-align: left;
   color: var(--ifm-color-black);
 }
 
@@ -29,8 +31,22 @@
   border: none;
 }
 
+.heroItems {
+  display: flex;
+  align-items: center;
+  place-content: space-around;
+  flex-wrap: wrap;
+}
+
 .heroButtonPrimary:hover {
   background-color: var(--ifm-color-primary-darker);
+}
+
+@media screen and (max-width: 959px) {
+  .heroItems {
+    gap: 4rem;
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -42,5 +58,5 @@
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
