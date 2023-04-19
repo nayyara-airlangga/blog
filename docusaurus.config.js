@@ -72,11 +72,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [
-        { property: 'og:image', content: 'img/me.png' },
-        { name: 'twitter:image', content: 'img/me.png' },
-        { name: 'twitter:card', content: 'img/me.png' }
-      ],
+      metadata: [{ name: 'twitter:card', content: 'img/me.png' }],
       colorMode: {
         defaultMode: 'dark'
       },
@@ -96,13 +92,7 @@ const config = {
           /*   position: 'left', */
           /*   label: 'Tutorial' */
           /* }, */
-          { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: `https://github.com/${process.env.GH_USER}`,
-            className: 'header-github-link',
-            position: 'right',
-            'aria-label': 'My GitHub Account'
-          }
+          { to: '/blog', label: 'Blog', position: 'right' }
         ]
       },
       footer: {
@@ -121,16 +111,13 @@ const config = {
             title: 'Contacts',
             items: [
               {
-                label: 'GitHub',
-                href: `https://github.com/${process.env.GH_USER}`
+                html: `<a class="footer__icon-link fa-brands fa-github fa-xl" href="https://github.com/${process.env.GH_USER}"></a>`
               },
               {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/nayyara-airlangga-raharjo'
+                html: `<a class="footer__icon-link fa-brands fa-linkedin fa-xl" href="https://linkedin.com/in/nayyara-airlangga-raharjo"></a>`
               },
               {
-                label: 'Email',
-                href: 'mailto:nayyara.airlangga@gmail.com'
+                html: `<a class="footer__icon-link fa-regular fa-envelope fa-xl" href="mailto:nayyara.airlangga@gmail.com"></a>`
               }
             ]
           },
