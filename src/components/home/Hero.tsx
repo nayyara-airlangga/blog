@@ -1,8 +1,6 @@
 import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import clsx from 'clsx'
 
-import styles from './Hero.module.css'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import Link from '@docusaurus/Link'
 
@@ -11,30 +9,27 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className={clsx('hero hero--primary', styles.heroBanner)}
+      className="hero dark:bg-dark bg-white text-center lg:py-16 py-8 lg:px-0 px-5 h-[90vh] mt-12 lg:mt-0"
     >
       <div className="container">
-        <div className={clsx(styles.heroItems)}>
-          <div>
-            <h1 className={clsx('hero__title', styles.heroTextPrimary)}>
+        <div className="flex flex-wrap lg:flex-row flex-col gap-16 items-center place-content-around">
+          <div className="lg:w-1/2 w-full">
+            <h1 className="text-5xl leading-[1.5] text-left text-primary">
               Hi, I'm Angga
             </h1>
-            <p className={clsx('hero__subtitle', styles.heroText)}>
+            <p className="text-2xl text-left dark:text-white text-black">
               {siteConfig.tagline}
             </p>
-            <div className={styles.buttons}>
+            <div className="flex items-center justify-start">
               <Link
-                className={clsx(
-                  'button button--secondary button--lg',
-                  styles.heroButtonPrimary
-                )}
+                className="button button--secondary button--lg bg-primary hover:bg-primary-darker border-none"
                 to="/blog"
               >
                 Read my blog
               </Link>
             </div>
           </div>
-          <div>
+          <div className="lg:w-2/5 w-full">
             <img src={useBaseUrl('/img/me.png')} />
           </div>
         </div>
