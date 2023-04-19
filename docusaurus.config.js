@@ -125,12 +125,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/nayyara-airlangga'
+                label: 'Archive',
+                to: '/blog/archive'
               }
             ]
           }
