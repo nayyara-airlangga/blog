@@ -1,7 +1,7 @@
 import React from 'react'
-import { Experience } from '@site/src/interfaces/experience'
+import { Experience } from '@site/src/interfaces/resume'
 
-export function ExperienceNode({
+export function ResumeNode({
   position,
   company,
   location: _location,

@@ -95,7 +95,7 @@ const config = {
           /*   label: 'Tutorial' */
           /* }, */
           { to: '/blog', label: 'Blog', position: 'right' },
-          { to: '/experience', label: 'Experience', position: 'right' }
+          { to: '/resume', label: 'Resume', position: 'right' }
         ]
       },
       footer: {

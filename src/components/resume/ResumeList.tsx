@@ -1,15 +1,13 @@
 import React from 'react'
 
-import { ExperienceNode } from './ExperienceNode'
+import { ResumeNode } from './ResumeNode'
 import { experiences } from '../../data/experience'
 
-export interface ExperienceListProps {
+export interface ResumeListProps {
   limit?: number
 }
 
-export function ExperienceList({
-  limit = 0
-}: ExperienceListProps): JSX.Element {
+export function ResumeList({ limit = 0 }: ResumeListProps): JSX.Element {
   const filteredExps =
     limit > 0
       ? limit < experiences.length
@@ -19,7 +17,7 @@ export function ExperienceList({
   return (
     <div className="my-6">
       {filteredExps.map((experience) => (
-        <ExperienceNode {...experience} />
+        <ResumeNode {...experience} />
       ))}
     </div>
   )
