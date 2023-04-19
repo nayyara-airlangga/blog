@@ -36,11 +36,13 @@ const config = {
     locales: ['en']
   },
 
+  plugins: ['./src/plugins/tailwindcss'],
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         // TODO: Create projects section
         /* docs: { */
         /*   sidebarPath: require.resolve('./sidebars.js'), */
@@ -59,7 +61,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css')
         }
-      })
+      }
     ]
   ],
 
@@ -71,7 +73,7 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       metadata: [{ name: 'twitter:card', content: 'img/me.png' }],
       colorMode: {
         defaultMode: 'dark'
@@ -137,7 +139,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme
       }
-    })
+    }
 }
 
 module.exports = config

@@ -2,7 +2,7 @@ import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 
-import { Hero } from '../components/home/Hero'
+import { Hero, ExperienceSection } from '../components/home/index'
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext()
@@ -13,6 +13,7 @@ export default function Home(): JSX.Element {
     >
       <main>
         <Hero />
+        <ExperienceSection />
       </main>
     </Layout>
   )
