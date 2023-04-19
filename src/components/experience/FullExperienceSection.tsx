@@ -1,7 +1,7 @@
 import React from 'react'
-import { ExperienceList } from '../experience/ExperienceList'
+import { ExperienceList } from './ExperienceList'
 
-export function ExperienceSection(): JSX.Element {
+export function FullExperienceSection(): JSX.Element {
   return (
     <section
       id="experience"
@@ -16,12 +16,9 @@ export function ExperienceSection(): JSX.Element {
         </div>
         <div className="flex flex-wrap lg:flex-row flex-col gap-16 items-center place-content-around">
           <div className="w-full lg:ml-5 ml-0">
-            <ExperienceList limit={3} />
+            <ExperienceList />
           </div>
         </div>
-        <a href="/experience" className="font-bold float-right">
-          View More
-        </a>
       </div>
     </section>
   )

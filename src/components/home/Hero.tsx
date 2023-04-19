@@ -17,9 +17,7 @@ export function Hero() {
             <h1 className="text-5xl leading-[1.5] text-left text-primary">
               Hi, I'm Angga
             </h1>
-            <p className="text-2xl text-left dark:text-white text-black">
-              {siteConfig.tagline}
-            </p>
+            <p className="text-2xl text-left">{siteConfig.tagline}</p>
             <div className="flex items-center justify-start">
               <Link
                 className="button button--secondary button--lg bg-primary hover:bg-primary-darker border-none"
