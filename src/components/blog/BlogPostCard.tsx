@@ -21,11 +21,8 @@ export function BlogPostCard({
         {metadata.formattedDate} · {Math.ceil(metadata.readingTime)} min read
       </p>
       <BlogPostContent />
-      <div className="mb-12"></div>
+      <div className="mb-12" />
       {metadata.tags.length > 0 && <Tags tags={metadata.tags} />}
-      <Link to={metadata.permalink} className="font-bold float-right">
-        Read More
-      </Link>
     </div>
   )
 }
