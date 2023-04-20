@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import { Content } from '@theme/BlogPostPage';
-import Link from '@docusaurus/Link';
-import { Tags } from './Tags';
+import { Content } from '@theme/BlogPostPage'
+import Link from '@docusaurus/Link'
+import { Tags } from './Tags'
 
 interface BlogPostCardProps {
-  content: Content;
+  content: Content
 }
 
 export function BlogPostCard({
   content: BlogPostContent
 }: BlogPostCardProps): JSX.Element {
-  const { metadata } = BlogPostContent;
+  const { metadata } = BlogPostContent
   return (
     <div className="mb-12">
       <Link to={metadata.permalink}>
@@ -27,5 +27,5 @@ export function BlogPostCard({
         Read More
       </Link>
     </div>
-  );
+  )
 }

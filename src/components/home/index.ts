@@ -1,3 +1,3 @@
-export * from './Hero';
-export * from './RecentPostsSection';
-export * from './ResumeSection';
+export * from './Hero'
+export * from './RecentPostsSection'
+export * from './ResumeSection'

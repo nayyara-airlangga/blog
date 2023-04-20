@@ -1,17 +1,17 @@
 // For pages that can't be handled normally by Docusaurusimport React from 'react'
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
+import React from 'react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
 
-import { Hero, RecentPostsSection, ResumeSection } from '../home';
-import { Post } from '@site/src/interfaces/blog';
+import { Hero, RecentPostsSection, ResumeSection } from '../home'
+import { Post } from '@site/src/interfaces/blog'
 
 interface HomeProps {
-  recentPosts: Post[];
+  recentPosts: Post[]
 }
 
 export default function Home({ recentPosts }: HomeProps): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   return (
     <Layout
       title={`Hi, I'm ${siteConfig.title}`}
@@ -23,5 +23,5 @@ export default function Home({ recentPosts }: HomeProps): JSX.Element {
         <ResumeSection />
       </main>
     </Layout>
-  );
+  )
 }

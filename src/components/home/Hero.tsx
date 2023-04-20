@@ -1,11 +1,11 @@
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React from 'react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import Link from '@docusaurus/Link'
 
 export function Hero() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   return (
     <section
       id="hero"
@@ -33,5 +33,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  );
+  )
 }

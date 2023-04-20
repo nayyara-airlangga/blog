@@ -1,4 +1,4 @@
-import { Experience } from '../interfaces/experience';
+import { Experience } from '../interfaces/experience'
 
 export const experiences: Experience[] = [
   {
@@ -43,4 +43,4 @@ export const experiences: Experience[] = [
       'Involved in integrating COMPFEST’s web application with its Nest.js backend service.'
     ]
   }
-];
+]

@@ -1,10 +1,10 @@
-import { Content } from '@theme/BlogPostPage';
+import { Content } from '@theme/BlogPostPage'
 
 export interface Post {
-  content: Content;
+  content: Content
 }
 
 export interface Tag {
-  label: string;
-  permalink: string;
+  label: string
+  permalink: string
 }

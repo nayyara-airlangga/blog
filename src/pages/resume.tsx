@@ -1,6 +1,6 @@
-import React from 'react';
-import Layout from '@theme/Layout';
-import { FullResumeSection } from '@site/src/components/resume';
+import React from 'react'
+import Layout from '@theme/Layout'
+import { FullResumeSection } from '@site/src/components/resume'
 
 export default function ResumePage(): JSX.Element {
   return (
@@ -9,5 +9,5 @@ export default function ResumePage(): JSX.Element {
         <FullResumeSection />
       </main>
     </Layout>
-  );
+  )
 }

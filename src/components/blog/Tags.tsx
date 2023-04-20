@@ -1,9 +1,9 @@
-import React from 'react';
-import { Tag } from '@site/src/interfaces/blog';
-import { Tag as TagComponent } from './Tag';
+import React from 'react'
+import { Tag } from '@site/src/interfaces/blog'
+import { Tag as TagComponent } from './Tag'
 
 interface TagsProps {
-  tags: Tag[];
+  tags: Tag[]
 }
 
 export function Tags({ tags }: TagsProps) {
@@ -21,5 +21,5 @@ export function Tags({ tags }: TagsProps) {
         ))}
       </ul>
     </>
-  );
+  )
 }

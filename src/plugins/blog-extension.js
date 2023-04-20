@@ -1,9 +1,9 @@
-const blogPluginExports = require('@docusaurus/plugin-content-blog');
+const blogPluginExports = require('@docusaurus/plugin-content-blog')
 
-const defaultBlogPlugin = blogPluginExports.default;
+const defaultBlogPlugin = blogPluginExports.default
 
 async function blogExtensionPlugin(...pluginArgs) {
-  const blogPluginInstance = await defaultBlogPlugin(...pluginArgs);
+  const blogPluginInstance = await defaultBlogPlugin(...pluginArgs)
 
   return {
     // Add all properties of the default blog plugin so existing functionality is preserved
@@ -13,7 +13,7 @@ async function blogExtensionPlugin(...pluginArgs) {
      */
     contentLoaded: async function (data) {
       // Get the 5 latest blog posts
-      const recentPosts = [...data.content.blogPosts].splice(0, 5);
+      const recentPosts = [...data.content.blogPosts].splice(0, 5)
 
       data.actions.addRoute({
         // Add route for the home page
@@ -36,15 +36,15 @@ async function blogExtensionPlugin(...pluginArgs) {
             }
           }))
         }
-      });
+      })
 
       // Call the default overridden `contentLoaded` implementation
-      return blogPluginInstance.contentLoaded(data);
+      return blogPluginInstance.contentLoaded(data)
     }
-  };
+  }
 }
 
 module.exports = {
   ...blogPluginExports,
   default: blogExtensionPlugin
-};
+}

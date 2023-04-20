@@ -1,11 +1,11 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
-import { BlogPostProvider } from '@docusaurus/theme-common/internal';
-import { Post } from '@site/src/interfaces/blog';
-import { BlogPostCard } from '../blog/BlogPostCard';
+import React from 'react'
+import Link from '@docusaurus/Link'
+import { BlogPostProvider } from '@docusaurus/theme-common/internal'
+import { Post } from '@site/src/interfaces/blog'
+import { BlogPostCard } from '../blog/BlogPostCard'
 
 interface RecentPostsSectionProps {
-  recentPosts: Post[];
+  recentPosts: Post[]
 }
 
 export function RecentPostsSection({
@@ -40,5 +40,5 @@ export function RecentPostsSection({
         </Link>
       </div>
     </section>
-  );
+  )
 }

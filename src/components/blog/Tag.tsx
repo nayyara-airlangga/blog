@@ -1,6 +1,6 @@
-import Link from '@docusaurus/Link';
-import { Tag as ITag } from '@site/src/interfaces/blog';
-import React from 'react';
+import Link from '@docusaurus/Link'
+import { Tag as ITag } from '@site/src/interfaces/blog'
+import React from 'react'
 
 export function Tag({ label, permalink }: ITag): JSX.Element {
   return (
@@ -10,5 +10,5 @@ export function Tag({ label, permalink }: ITag): JSX.Element {
     >
       {label}
     </Link>
-  );
+  )
 }
