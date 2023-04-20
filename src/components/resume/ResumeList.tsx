@@ -8,12 +8,7 @@ export interface ResumeListProps {
 }
 
 export function ResumeList({ limit = 0 }: ResumeListProps): JSX.Element {
-  const filteredExps =
-    limit > 0
-      ? limit < experiences.length
-        ? experiences.slice(0, limit)
-        : experiences
-      : experiences;
+  const filteredExps = limit > 0 ? experiences.slice(0, limit) : experiences;
   return (
     <div className="my-6">
       {filteredExps.map((experience) => (

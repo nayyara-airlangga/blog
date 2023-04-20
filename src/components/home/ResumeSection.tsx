@@ -6,7 +6,7 @@ export function ResumeSection(): JSX.Element {
   return (
     <section
       id="resume"
-      className="hero dark:bg-dark bg-white lg:py-16 py-8 lg:px-0 px-5"
+      className="hero dark:bg-dark bg-white py-4 mb-4 lg:px-0 px-5"
     >
       <div className="container">
         <div className="flex flex-wrap lg:flex-row flex-col gap-16 items-center place-content-around">
@@ -21,7 +21,7 @@ export function ResumeSection(): JSX.Element {
           </div>
         </div>
         <Link to="/resume" className="font-bold float-right">
-          View More
+          See more entries
         </Link>
       </div>
     </section>
