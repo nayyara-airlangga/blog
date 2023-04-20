@@ -1,5 +1,5 @@
-import React from 'react'
-import { ResumeList } from './ResumeList'
+import React from 'react';
+import { ResumeList } from './ResumeList';
 
 export function FullResumeSection(): JSX.Element {
   return (
@@ -21,5 +21,5 @@ export function FullResumeSection(): JSX.Element {
         </div>
       </div>
     </section>
-  )
+  );
 }

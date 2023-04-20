@@ -10,14 +10,14 @@
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css);
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css');
 
 /* You can override the default Infima variables here. */
 :root {
   --ifm-background-surface-color: #202020;
   --ifm-color-primary: #2cb8f9;
   --ifm-color-primary-dark: ##2cb8f9;
-  --ifm-color-primary-darker: #1F81AE;
+  --ifm-color-primary-darker: #1f81ae;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
@@ -31,7 +31,7 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #202020;
   --ifm-background-color: #141414;
   --ifm-color-primary-dark: #2cb8f9;
-  --ifm-color-primary-darker: #1F81AE;
+  --ifm-color-primary-darker: #1f81ae;
   --ifm-color-primary-darkest: #1a8870;
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
@@ -67,7 +67,6 @@ html[data-theme='dark'] {
   background: var(--ifm-menu-link-sublist-icon) 50% / 2rem 2rem;
   filter: invert(1) brightness(100%);
 }
-
 
 .footer__icon-link {
   color: var(--ifm-color-white);

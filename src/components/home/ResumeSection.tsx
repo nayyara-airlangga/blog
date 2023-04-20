@@ -1,6 +1,6 @@
-import Link from '@docusaurus/Link'
-import React from 'react'
-import { ResumeList } from '../resume/ResumeList'
+import Link from '@docusaurus/Link';
+import React from 'react';
+import { ResumeList } from '../resume/ResumeList';
 
 export function ResumeSection(): JSX.Element {
   return (
@@ -25,5 +25,5 @@ export function ResumeSection(): JSX.Element {
         </Link>
       </div>
     </section>
-  )
+  );
 }

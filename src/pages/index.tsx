@@ -1,11 +1,11 @@
-import React from 'react'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import Layout from '@theme/Layout'
+import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
 
-import { Hero, ResumeSection } from '../components/home'
+import { Hero, ResumeSection } from '../components/home';
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Hi, I'm ${siteConfig.title}`}
@@ -16,5 +16,5 @@ export default function Home(): JSX.Element {
         <ResumeSection />
       </main>
     </Layout>
-  )
+  );
 }

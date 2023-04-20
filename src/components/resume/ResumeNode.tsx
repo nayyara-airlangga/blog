@@ -1,5 +1,5 @@
-import React from 'react'
-import { Experience } from '@site/src/interfaces/resume'
+import React from 'react';
+import { Experience } from '@site/src/interfaces/resume';
 
 export function ResumeNode({
   position,
@@ -30,5 +30,5 @@ export function ResumeNode({
         <div className="py-2"></div>
       </div>
     </li>
-  )
+  );
 }
