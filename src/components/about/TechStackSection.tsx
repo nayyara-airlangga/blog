@@ -13,7 +13,7 @@ export function TechStackSection(): JSX.Element {
         <h1 className="lg:text-4xl text-3xl text-left">
           Technologies I've used
         </h1>
-        <div className="w-full">
+        <div className="w-full mt-10">
           <ul className="list-inside p-0 gap-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {techStacks.map(({ name, icon }, i) => (
               <li

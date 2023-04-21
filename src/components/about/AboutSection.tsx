@@ -9,10 +9,10 @@ export function AboutSection(): JSX.Element {
     >
       <div className="container">
         <h1 className="lg:text-4xl text-3xl text-left">About Me</h1>
-        <div className="w-full">
+        <div className="w-full flex flex-col md:block mt-10">
           <img
             src={useBaseUrl('/img/me.png')}
-            className="float-right max-w-fit lg:pl-8 lg:pb-8 py-8"
+            className="float-right mx-auto max-w-fit lg:pl-8 lg:pb-8 py-8"
           />
           <p>
             Hi there! My name is Angga and welcome to my personal space. My

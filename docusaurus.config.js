@@ -11,7 +11,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Angga',
-  tagline: "I strive to be better each day and here's my journey",
+  tagline:
+    'I do work focused on Backend, Cloud, DevOps, and Infrastructure. Occasionally, I also do Frontend engineering.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

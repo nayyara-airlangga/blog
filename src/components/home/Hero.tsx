@@ -25,7 +25,7 @@ export function Hero() {
             </p>
             <div className="flex flex-wrap items-center gap-8 gap-y-4 justify-start">
               <Link
-                className="button button--lg bg-primary hover:bg-primary-darker border-solid border-[1px] border-transparent hover:text-white"
+                className="button button--lg bg-primary hover:bg-primary-darker border-solid border-[1px] border-transparent hover:text-white dark:hover:text-black"
                 to="/blog"
               >
                 Read my blog
