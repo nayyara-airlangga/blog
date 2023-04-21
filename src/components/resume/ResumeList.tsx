@@ -12,7 +12,10 @@ export function ResumeList({ limit = 0 }: ResumeListProps): JSX.Element {
   return (
     <div className="my-6">
       {filteredExps.map((experience) => (
-        <ResumeNode {...experience} />
+        <ResumeNode
+          key={experience.company + experience.position + experience.timeSpan}
+          {...experience}
+        />
       ))}
     </div>
   )

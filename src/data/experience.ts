@@ -1,4 +1,4 @@
-import { Experience } from '../interfaces/experience'
+import { Experience } from '../interfaces/resume'
 
 export const experiences: Experience[] = [
   {

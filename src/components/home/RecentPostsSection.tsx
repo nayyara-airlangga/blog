@@ -26,7 +26,10 @@ export function RecentPostsSection({
         <div className="mt-4 flex flex-wrap lg:flex-row flex-col gap-16 items-center place-content-around">
           <div className="w-full lg:ml-5 ml-0">
             {recentPosts.map(({ content: BlogPostContent }) => (
-              <BlogPostProvider content={BlogPostContent}>
+              <BlogPostProvider
+                content={BlogPostContent}
+                key={BlogPostContent.metadata.permalink}
+              >
                 <BlogPostCard
                   key={BlogPostContent.metadata.permalink}
                   content={BlogPostContent}

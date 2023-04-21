@@ -23,11 +23,11 @@ export function ResumeNode({
           </a>
         </h3>
         <ul className="list-outside -mt-1 -ml-4">
-          {keyPoints.map((point) => (
-            <li>{point}</li>
+          {keyPoints.map((point, i) => (
+            <li key={point + i}>{point}</li>
           ))}
         </ul>
-        <div className="py-2"></div>
+        <div className="py-2" />
       </div>
     </li>
   )
