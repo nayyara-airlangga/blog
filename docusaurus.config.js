@@ -43,7 +43,7 @@ const config = {
       './src/plugins/blog-extension',
       {
         blogDescription:
-          'The reflections and thoughts of a man striving to be better. Writes about tech and occasionally other things',
+          'My ideas, thoughts, knowledge, experience, and journey poured into blog articles. I will be focusing on my work in tech but I might occasionally post about other topics that I find interesting.',
         showReadingTime: true,
         routeBasePath: '/blog'
       }
