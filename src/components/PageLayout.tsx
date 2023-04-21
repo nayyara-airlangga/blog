@@ -44,7 +44,7 @@ export function PageLayout({ seo, children }: PageLayoutProps): JSX.Element {
         <meta property="twitter:card" content={seo.image} />
         <meta property="twitter:image" content={seo.image} />
       </Head>
-      <main>{children}</main>
+      <main className="lg:px-40">{children}</main>
     </Layout>
   )
 }

@@ -101,7 +101,8 @@ const config = {
           /*   label: 'Tutorial' */
           /* }, */
           { to: '/blog', label: 'Blog', position: 'right' },
-          { to: '/resume', label: 'Resume', position: 'right' }
+          { to: '/resume', label: 'Resume', position: 'right' },
+          { to: '/about', label: 'About', position: 'right' }
         ]
       },
       footer: {
