@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { Hero, RecentPostsSection, ResumeSection } from '../home'
 import { Post } from '@site/src/interfaces/blog'
 import { PageLayout } from '../PageLayout'
+import { TechStackSection } from '../about/TechStackSection'
 
 interface HomeProps {
   recentPosts: Post[]
@@ -20,6 +21,7 @@ export default function Home({ recentPosts }: HomeProps): JSX.Element {
       }}
     >
       <Hero />
+      <TechStackSection />
       <RecentPostsSection recentPosts={recentPosts} />
       <ResumeSection />
     </PageLayout>

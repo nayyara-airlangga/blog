@@ -1,11 +1,9 @@
 import React from 'react'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import Link from '@docusaurus/Link'
 
 export function Hero() {
-  const { siteConfig } = useDocusaurusContext()
   return (
     <section
       id="hero"
@@ -14,16 +12,29 @@ export function Hero() {
       <div className="container">
         <div className="flex flex-wrap lg:flex-row flex-col gap-16 items-center place-content-around">
           <div className="lg:w-1/2 w-full">
-            <h1 className="text-5xl leading-[1.5] text-left text-primary">
-              Hi, I'm Angga
+            <h1 className="text-5xl leading-[1.5] text-left">
+              Hi, I'm <span className="text-primary">Angga</span>
             </h1>
-            <p className="text-2xl text-left">{siteConfig.tagline}</p>
-            <div className="flex items-center justify-start">
+            <p className="text-xl text-left">
+              I do work focused on <span className="text-primary">Backend</span>
+              , <span className="text-primary">Cloud</span>,{' '}
+              <span className="text-primary">DevOps</span>, and{' '}
+              <span className="text-primary">Infrastructure</span>.
+              Occasionally, I also do{' '}
+              <span className="text-primary">Frontend</span> engineering.
+            </p>
+            <div className="flex flex-wrap items-center gap-8 gap-y-4 justify-start">
               <Link
-                className="button button--secondary button--lg bg-primary hover:bg-primary-darker border-none"
+                className="button button--lg bg-primary hover:bg-primary-darker border-solid border-[1px] border-transparent hover:text-white"
                 to="/blog"
               >
                 Read my blog
+              </Link>
+              <Link
+                className="button button--lg bg-transparent hover:bg-primary border-solid border-primary text-primary hover:text-white dark:hover:text-black border-[1px] transition duration-200"
+                to="/about"
+              >
+                More about me
               </Link>
             </div>
           </div>
