@@ -15,6 +15,8 @@ export const techStacks: TechStack[] = [
   { name: 'MongoDB', icon: 'simple-icons:mongodb' },
   { name: 'Redis', icon: 'fontisto:redis' },
   { name: 'Docker', icon: 'simple-icons:docker' },
+  { name: 'Caddy', icon: 'simple-icons:caddy' },
   { name: 'Nginx', icon: 'simple-icons:nginx' },
+  { name: 'AWS', icon: 'simple-icons:amazonaws' },
   { name: 'GCP', icon: 'simple-icons:googlecloud' }
 ]

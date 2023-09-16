@@ -12,7 +12,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 const config = {
   title: 'Angga',
   tagline:
-    'I do work focused on Backend, Cloud, DevOps, and Infrastructure. Occasionally, I also do Frontend engineering.',
+    'I do work focused on Data and Backend. Occasionally, I also do Full Stack engineering.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

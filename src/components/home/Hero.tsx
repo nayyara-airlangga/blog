@@ -16,12 +16,11 @@ export function Hero() {
               Hi, I'm <span className="text-primary">Angga</span>
             </h1>
             <p className="text-xl text-left">
-              I do work focused on <span className="text-primary">Backend</span>
-              , <span className="text-primary">Cloud</span>,{' '}
-              <span className="text-primary">DevOps</span>, and{' '}
-              <span className="text-primary">Infrastructure</span>.
+              I do work focused on <span className="text-primary">Data</span>
+              {' '} and{' '}
+              <span className="text-primary">Backend</span>.
               Occasionally, I also do{' '}
-              <span className="text-primary">Frontend</span> engineering.
+              <span className="text-primary">Full Stack</span> engineering.
             </p>
             <div className="flex flex-wrap items-center gap-8 gap-y-4 justify-start">
               <Link
