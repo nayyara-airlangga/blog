@@ -1,6 +1,6 @@
-# Gweh
+# Blog
 
-(LEGACY) I no longer maintain this. Storing it in the legacy branch in case I need references to go back to.
+A personal blog I made. This was previously my personal site but I decided to remove that and just make this exclusively into a blog site.
 
 ### Installation
 
