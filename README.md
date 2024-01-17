@@ -1,6 +1,6 @@
 # Blog
 
-A personal blog I made. This was previously my personal site but I decided to remove that and just make this exclusively into a blog site.
+It's a personal site with a blog.
 
 ### Installation
 
