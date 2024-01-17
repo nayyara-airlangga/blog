@@ -1,6 +1,6 @@
 # Blog
 
-It's a personal site with a blog.
+It's a personal blog.
 
 ### Installation
 

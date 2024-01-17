@@ -57,7 +57,7 @@ const config = {
           blogDescription:
             'My ideas, thoughts, knowledge, experience, and journey poured into blog articles. I will be focusing on my work in tech but I might occasionally post about other topics that I find interesting.',
           showReadingTime: true,
-          routeBasePath: '/blog'
+          routeBasePath: '/'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
@@ -95,9 +95,6 @@ const config = {
           /*   position: 'left', */
           /*   label: 'Tutorial' */
           /* }, */
-          { to: '/blog', label: 'Blog', position: 'right' },
-          { to: '/resume', label: 'Resume', position: 'right' },
-          { to: '/about', label: 'About', position: 'right' }
         ]
       },
       footer: {
@@ -131,7 +128,7 @@ const config = {
             items: [
               {
                 label: 'Archive',
-                to: '/blog/archive'
+                to: '/archive'
               }
             ]
           }
