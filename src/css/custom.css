@@ -94,3 +94,22 @@ html[data-theme='dark'] {
 .footer {
   --ifm-footer-background-color: var(--ifm-background-surface-color);
 }
+
+/* Custom styles */
+
+.margin-bottom--xl {
+  margin-bottom: 2rem !important;
+}
+
+h1[itemprop='headline'],
+h2[itemprop='headline'] {
+  font-size: 2.25rem;
+  color: var(--ifm-color-primary);
+}
+
+@media (max-width: 576px) {
+  h1[itemprop='headline'],
+  h2[itemprop='headline'] {
+    font-size: 1.75rem;
+  }
+}
