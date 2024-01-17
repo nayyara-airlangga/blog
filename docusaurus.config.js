@@ -37,18 +37,7 @@ const config = {
     locales: ['en']
   },
 
-  plugins: [
-    './src/plugins/tailwindcss',
-    [
-      './src/plugins/blog-extension',
-      {
-        blogDescription:
-          'My ideas, thoughts, knowledge, experience, and journey poured into blog articles. I will be focusing on my work in tech but I might occasionally post about other topics that I find interesting.',
-        showReadingTime: true,
-        routeBasePath: '/blog'
-      }
-    ]
-  ],
+  plugins: ['./src/plugins/tailwindcss'],
 
   presets: [
     [
@@ -64,7 +53,12 @@ const config = {
         /*     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/' */
         /* }, */
         docs: false,
-        blog: false,
+        blog: {
+          blogDescription:
+            'My ideas, thoughts, knowledge, experience, and journey poured into blog articles. I will be focusing on my work in tech but I might occasionally post about other topics that I find interesting.',
+          showReadingTime: true,
+          routeBasePath: '/blog'
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
         }

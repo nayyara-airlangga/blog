@@ -3,14 +3,9 @@ import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 import { Hero } from '../home'
-import { Post } from '@site/src/interfaces/blog'
 import { PageLayout } from '../PageLayout'
 
-interface HomeProps {
-  recentPosts: Post[]
-}
-
-export default function Home({ recentPosts }: HomeProps): JSX.Element {
+export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext()
   return (
     <PageLayout
