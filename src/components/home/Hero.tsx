@@ -16,11 +16,10 @@ export function Hero() {
               Hi, I'm <span className="text-primary">Angga</span>
             </h1>
             <p className="text-xl text-left">
-              I do work focused on <span className="text-primary">Data</span>
-              {' '} and{' '}
-              <span className="text-primary">Backend</span>.
-              Occasionally, I also do{' '}
-              <span className="text-primary">Full Stack</span> engineering.
+              I do work focused on <span className="text-primary">Data</span>{' '}
+              and <span className="text-primary">Backend</span>. Occasionally, I
+              also do <span className="text-primary">Full Stack</span>{' '}
+              engineering.
             </p>
             <div className="flex flex-wrap items-center gap-8 gap-y-4 justify-start">
               <Link
@@ -31,9 +30,9 @@ export function Hero() {
               </Link>
               <Link
                 className="button button--lg bg-transparent hover:bg-primary border-solid border-primary text-primary hover:text-white dark:hover:text-black border-[1px] transition duration-200"
-                to="/about"
+                to="/resume"
               >
-                More about me
+                View my work
               </Link>
             </div>
           </div>
