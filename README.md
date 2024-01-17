@@ -1,6 +1,6 @@
 # Gweh
 
-A simple personal site of mine. Built using Docusaurus
+(LEGACY) I no longer maintain this. Storing it in the legacy branch in case I need references to go back to.
 
 ### Installation
 
