@@ -1,0 +1,156 @@
+---
+slug: building-a-product-assistant-part-1
+title: 'Docker AI/ML Hackathon: Building a Product Assistant (Part 1: Understanding User Needs and MVP Specification)'
+enableComments: true
+image: ./chiral_landing.png
+---
+
+After our [achievement at GEMASTIK](/journey-to-gemastik-xvi), we decided to capitalize on the momentum and compete in another competition. Our eyes are set on a global-scale hackathon organized by [Docker on Devpost](https://docker.devpost.com). This competition lasted a month from October to November 2023. The theme revolves around using AI to solve problems related to developer experience and productivity. After going through the process of finding and validating ideas, we decided to build a product assistant to help product and engineering go through the requirement gathering, scoping, understanding, and task delegation process. We went on to winning an honorable mention with this product. How did we do it?
+
+<!--truncate-->
+
+<center>
+
+![Chiral Landing Page](./chiral_landing.png)
+_The landing page for our product, Chiral_
+</center>
+
+## Before we start...
+
+As you can see from the title, this topic is gonna be split up into different posts. I plan to make 2 parts as cramming them into one article makes it tediously long and dilutes the focus from each sub-topic. For this part, I want to focus on the product development aspect of our process. The second part will focus on the technical design and implementation. Without further ado, let's dive in!
+
+## Our framework
+
+We used a similar framework to the one we used in GEMASTIK to build our solution. We adapt Dan Olsen's lean product process from his incredible book, ["The Lean Product Playbook"](https://leanproductplaybook.com/). To build a good product that solves real problems, we need to:
+
+1. Identify our target users
+2. Figure out their underserved needs
+3. Define our value proposition
+4. Specify the minimum set of features to deliver value
+5. Build the minimum viable product (MVP) based on the feature set
+6. Test the MVP with customers
+
+These steps ensure that we're building a solution, or at least a proof of concept for a real problem/need that users have. 
+
+:::info
+
+Quick note, I highly recommend the book for anyone looking to build products or businesses. Whether you're from product, engineering, or an entrepreneur, this book will help as a reference as you build for your users.
+
+:::
+
+## Step 1: Identify our target users
+
+This is quite easy as the hackathon description already said that they wanted to focus on developer productivity and experience. Initially, we thought our users are limited to just developers and engineers. However, the keyword is **developer productivity**. Considering it from another perspective, a developer's productivity can also depend on their cohesiveness with other teams such as product. With that said, we decided to target people from product and engineering as our primary user base.
+
+## Step 2: Figure out their underserved needs
+
+Normally, we need to find people who fit into our target users first. Fortunately, majoring in computer science means we get to meet a lot of engineers and product enthusiasts. So, we decided to ask a few questions to find out their needs and problems they have encountered in the past.
+
+Before I dive into this, one thing I want to point out is that people who write about the purpose and how to do user interviews rarely include real examples. I'm not saying mine is the perfect example but I want to show what it can look like for those who are wondering. 
+
+### Product's POV
+
+Here's an adapted excerpt of a conversation I had with one of my PM friends.
+
+:::note Disclaimer
+
+I'm trying to keep it as accurate with the actual conversation and parts of the convo are in English or Indonesian so apologies if the language isn't professional 😅
+
+:::
+
+> _Me: Hello. I’d like to ask a few questions for a project if that’s ok. Have you ever faced issues selama ngerjain proyek or at work that hampens yours or your team’s productivity, in particular while working with engineers? I’m researching a bit on DX and tech worker productivity and I’d like to know the perspective of the matter from a PM_
+
+> _Friend: i may not remember all of them sih, but usually if its projects, the most common thing that happens with engineers is ilang2an. gw pernah proyekan dulu, 1 PM, 1 designer (me), and 2 engineers. if hal sekecil apapun gk clear tuh biasanya engineer males trs ngilang. bahkan ketika gak ada masalah pun bisa aja ngilang sih wkwk. tp gw plg inget kalau emg ada yg krg jelas kyk requirement, or permintaan dr client, etc, engineer suka gilang_
+
+> _Me: Dang. How did this get resolved then? Was there something you did or did the engineers do something on their end to clarify the reqs and stuff? Bcs now that you mention it, this problem is also prevalent amongst those who aren’t engineers and could severely hampen team productivity_
+
+> _Friend: at that time the PM is also a very junior PM. he tried his best to keep the engineer nearby, and to some extent he succedded and the MVP tuh jadi, but a lot of the requirements are adjusted. dia byk nego sama clientnya biar gak perlu terlalu bagus hasil productnya_
+
+> _Me: I see. Was there something you learned here biar gk terjadi kyk gini lagi? Like, what’s your entire takeaway on the situation?_ 
+
+> _Friend: honestly, i think it was quite inevitable in that situation cus org2nya emg lg pd sibuk, apalagi yg engineer. but i think a clear and concise plan and pembagian tugas will help a lot. like ga harus jira jg, cuman kalau clear points yg mesti dilakukan itu bagus sih supaya engineer termotivasi jg dan clear mesti ngapain_
+
+That was quite long. But the point here is that most of the time, user/customer interviews won't immediately give you direct insights to their needs. Fortunately, this is usually fine. From this conversation alone, I got a few takeaways on the issues she faced and what might be the cause.
+
+1. She mentioned that the engineers are often hard to contact and sometimes even going missing. But this is usually because the requirements and product they were told to make had ambiguity and missing details. A lot of engineers are relucant to explore deeper and communicate with the PMs to clarify any ambiguity. This results in friction and productivity loss. While this is a sign of a bigger problem, we've identified a problem that we can explore.
+2. Many PMs don't have the technical prowess and experience to break down a client's requests into understandable parts and requirements. This creates unclear and vague requirements which can cause friction for the engineers and for the PMs themselves in communicating their vision.
+3. There are tools out there that can help PMs create a plan and delegate tasks to their engineers such as [Linear](https://linear.app). However, if they can't break down the tasks and requirements clearly, this doesn't really help much.
+
+From here I've gotten a bit of an idea on what to make. We can assist PMs in breaking down their product requirements into clear and actionable tickets/task for the engineers. That solves the problem of requirement understanding from the engineer's side, but the requirements themselves are still vague. Perhaps we can do something about this too?
+
+### Engineering's POV
+
+For a bit of context, alongside the interviews I was researching the available productivity tools already out there. I discovered a tool called [sharly.ai](https://sharly.ai/), a chatbot where you can ask and discuss any document you provide it. This can be PDFs, word docs, spreadsheets, etc. I find the idea to be interesting and I wondered if we could incorporate elements into the idea with the task generation idea. We've gotten the perspective of a product person previously. Let's check in with the other party regarding this idea.
+
+:::note Disclaimer
+
+Once again, this isn't supposed to be a perfect example of how a professional user interview is like. My conversations are meant to show what can be expected from a discussion and what to pay attention to.
+
+:::
+
+> _Me: Hello. What are your thoughts on a service like this? Would you use it for work and if not why? (referring to sharly.ai)_
+
+> _Friend: I'll use it. Apa lg kalo bisa embed ke km_
+
+> _Me: What's km in this context?_
+
+> _Friend: knowledge management. bisa gw pake ke internal docs_
+
+After a bit of thinking and looking at my team's constraints such as time and skill, we proposed for the chatbot to focus on just PDFs. The following conversation shows why user interviews—and more generally, understanding user needs—are very important.
+
+> _Me: We wanted to incorporate the PDF chatting capability cm bkn jd main feature-nya. This is a complement to another feature where we can generate ticket2 yg suitable for developers/engineers jadi lbh mudah dipahami jg based on the doc. Jd ini lbh ke PRD sih yg diterima sm sistem. And kl udh oke, you can just export that to your favorite issue tracker tools (e.g. Linear, Jira, Asana, etc.) What do you think?_
+
+> _Friend: I don't think dari pdf kepake tho. dari docs gw perlu input outputnya apa. scope nya apa. yang bukan scope apa sama bakal epic kalo bisa rever langsung ke kalimat di docs buat refer balik_
+
+> _Me: Can you elaborate on why pdf gak kepake?_
+
+> _Friend: jarang gw perlu extract ticket dari pdf. sering kali dari internal knowledge management abis dari meeting. jadi dari any docs web based aja lebih bagus. mirip kayak konsep cursor yang bisa nerima url docs apa aja trus lu bisa tanya. konsep nya mirip tapi bisa tanya dan generate ticket_
+
+> _Me: so from your perspective what can be an alternative then instead of pdfs? kyk internal km lo emg make apa gt?_
+
+> _Friend: gw lupa kemaren pake apa. tapi pake shit like notion, clickup, linear dll gitu_
+
+> _Me: I see. So it would be better kl misal kita bisa integrate lgsg ya?_
+
+> _Friend: yeah. jangan fokus ke pdf nya, ke any text aja. misalnya mau dari pdf. ya bikin convert ke text dlu baru masukin ke ai lu_
+
+As it turns out, we were heading in the wrong direction had we continued directly with the PDF chatbot idea. Although he agreed that its a useful feature that he'd be willing to use, I had the wrong assumption in thinking that it's still the same thing if we restricted it to just PDFs. What he really wanted was a chatbot that's integrated directly to his KM at work so that the process of probing the requirement document is easy and seamless. He also mentioned Linear so there's an opportunity for integration there alongside the task generation feature.
+
+Now that we've identified what these people really need, it's time to move onto the next step
+
+## Step 3: Define our value proposition
+
+From what we've gathered so far, there are two real issues that we can try to tackle.
+
+1. Unclear and vague requirements adds friction and causes engineers to stir away from projects and adds burden to the PMs in managing expectations. This usually results in a poor and at best mediocre product.
+2. PMs without technical experience have a harder time in breaking down requirements into clear and actionable tasks. They struggle to communicate to the engineers what needs to be done in a clear and systematic manner.
+
+Let's focus on the first issue first. I think this one is pretty specific and there aren't any notable solutions out there to the problem just yet. We can build a tool to assist the PMs and engineers in breaking down the requirements into clearer and actionable tasks. This way the engineers have a more systematic and clear view on what the user needs. This increases their interests and they are able to work more effectively.
+
+The second one is also interesting but there are plenty of great solutions out there already such as sharly.ai if we're thinking about document QnA chatbots. We would've been a bit stuck here if it wasn't for the insight we obtained from the user interview. 
+
+What's unique and valuable in our proposed solution is the fact that we integrate directly into knowledge management systems such as Linear. PMs and engineers are already using these platforms in the first place so integrating the system directly minimizes friction and makes this process much easier for both parties. PMs can easily ask for advice and discuss on what to improve regarding the requirements and the engineers can comfortably ask for clarity on the requirements. A seemingly fresh packaging to an already established idea. But we'll take it. It's almost impossible to come up with completely original ideas.
+
+Once we've established our value proposition, we discussed this again with our product and engineering friends. After a bit of refining, we managed to get buy-in and confirmed that we proposed real value to them.
+
+## Step 4: Specify the minimum set of features to deliver value
+
+You could use any method you want but we went for a simple Work Breakdown Structure (WBS) document. Here's what we came up with:
+
+![Work Breakdown Structure Document for Chiral](./wbs.png)
+
+:::note
+
+An important thing to note is that we don't want to add features that aren't necessary to deliver value to our users. We focus on the features necessary to build a [Minimum Viable Product (MVP)](https://www.productplan.com/glossary/minimum-viable-product/) for the users.
+
+:::
+
+With the MVP specified, it's time to build it!
+
+<hr />
+
+...is what I'd like to say but we're just about at the end of part one of this topic. This is by no means supposed to be a tutorial or anything. It's more like a write-up if anything lol. My intention has always been to just share what I've done because I'm proud of it and hopefully it can be of use to you too 😁
+
+For the next part, I'll be covering how we designed and built our MVP.
+
+Thanks a lot for reading up until this point! See you next time!
