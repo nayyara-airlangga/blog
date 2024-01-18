@@ -56,7 +56,7 @@ const config = {
         blog: {
           blogDescription:
             'My ideas, thoughts, knowledge, experience, and journey poured into blog articles. I will be focusing on my work in tech but I might occasionally post about other topics that I find interesting.',
-          showReadingTime: true,
+          showReadingTime: false,
           routeBasePath: '/'
         },
         theme: {

@@ -101,15 +101,30 @@ html[data-theme='dark'] {
   margin-bottom: 2rem !important;
 }
 
-h1[itemprop='headline'],
-h2[itemprop='headline'] {
+.margin-vert--md {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+[itemprop='datePublished'] {
+  color: var(--ifm-color-gray-600);
+  font-size: 1rem;
+}
+
+h1[itemprop='headline'] {
   font-size: 2.25rem;
   color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem !important;
+}
+
+h2[itemprop='headline'] {
+  font-size: 1.75rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem !important;
 }
 
 @media (max-width: 576px) {
-  h1[itemprop='headline'],
-  h2[itemprop='headline'] {
+  h1[itemprop='headline'] {
     font-size: 1.75rem;
   }
 }
