@@ -95,6 +95,10 @@ html[data-theme='dark'] {
   --ifm-footer-background-color: var(--ifm-background-surface-color);
 }
 
+footer.docusaurus-mt-lg {
+  margin-top: 1.75rem;
+}
+
 /* Custom styles */
 
 .margin-bottom--xl {

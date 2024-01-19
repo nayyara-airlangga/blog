@@ -10,9 +10,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Angga',
-  tagline:
-    'I do work focused on Data and Backend. Occasionally, I also do Full Stack engineering.',
+  title: 'Blog',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -82,7 +80,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/me.png',
       navbar: {
-        title: 'Angga',
+        title: 'Home',
         logo: {
           alt: 'Angga Logo',
           src: 'img/me.png'
