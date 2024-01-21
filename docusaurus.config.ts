@@ -16,8 +16,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const config = {
-  title: 'Blog',
-  favicon: 'img/favicon.ico',
+  title: 'The B(ased)log',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
   url: process.env.SITE_URL,
@@ -47,14 +47,6 @@ const config = {
     [
       'classic',
       {
-        // TODO: Create projects section
-        /* docs: { */
-        /*   sidebarPath: require.resolve('./sidebars.js'), */
-        /*   // Please change this to your repo. */
-        /*   // Remove this to remove the "edit this page" links. */
-        /*   editUrl: */
-        /*     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/' */
-        /* }, */
         docs: false,
         blog: {
           blogDescription:
@@ -84,33 +76,15 @@ const config = {
     // Replace with your project's social card
     image: 'img/me.png',
     navbar: {
-      title: 'Home',
+      title: 'The B(ased)log',
       logo: {
-        alt: 'Angga Logo',
-        src: 'img/me.png'
-      },
-      items: [
-        // TODO: use this as project options
-        /* { */
-        /*   type: 'docSidebar', */
-        /*   sidebarId: 'tutorialSidebar', */
-        /*   position: 'left', */
-        /*   label: 'Tutorial' */
-        /* }, */
-      ]
+        alt: 'Logo',
+        src: 'img/favicon.svg'
+      }
     },
     footer: {
       style: 'dark',
       links: [
-        /* { */
-        /*   title: 'Docs', */
-        /*   items: [ */
-        /*     { */
-        /*       label: 'Tutorial', */
-        /*       to: '/docs/intro' */
-        /*     } */
-        /*   ] */
-        /* }, */
         {
           title: 'Contacts',
           items: [
