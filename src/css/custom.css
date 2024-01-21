@@ -48,6 +48,10 @@ html[data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+[itemprop='articleBody'] a {
+  font-weight: 600;
+}
+
 .navbar {
   --ifm-navbar-link-color: #ffffff;
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
