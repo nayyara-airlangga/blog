@@ -68,13 +68,13 @@ const config = {
   },
 
   themeConfig: {
-    metadata: [{ name: 'twitter:card', content: 'img/me.png' }],
+    metadata: [{ name: 'twitter:card', content: 'img/favicon.svg' }],
     colorMode: {
       defaultMode: 'light',
       respectPrefersColorScheme: true
     },
     // Replace with your project's social card
-    image: 'img/me.png',
+    image: 'img/favicon.png',
     navbar: {
       title: 'The B(ased)log',
       logo: {
