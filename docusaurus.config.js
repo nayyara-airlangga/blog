@@ -75,7 +75,8 @@ const config = {
     {
       metadata: [{ name: 'twitter:card', content: 'img/me.png' }],
       colorMode: {
-        defaultMode: 'dark'
+        defaultMode: 'light',
+        respectPrefersColorScheme: true
       },
       // Replace with your project's social card
       image: 'img/me.png',
