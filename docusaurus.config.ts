@@ -68,7 +68,7 @@ const config = {
   },
 
   themeConfig: {
-    metadata: [{ name: 'twitter:card', content: 'img/favicon.svg' }],
+    metadata: [{ name: 'twitter:card', content: '/img/favicon.svg' }],
     colorMode: {
       defaultMode: 'light',
       respectPrefersColorScheme: true
