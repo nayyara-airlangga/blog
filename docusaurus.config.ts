@@ -74,7 +74,7 @@ const config = {
       respectPrefersColorScheme: true
     },
     // Replace with your project's social card
-    image: 'img/favicon.svg',
+    image: 'img/logo.png',
     navbar: {
       title: 'The B(ased)log',
       logo: {
