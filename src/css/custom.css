@@ -48,10 +48,6 @@ html[data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-[itemprop='articleBody'] a {
-  font-weight: 600;
-}
-
 .navbar {
   --ifm-navbar-link-color: #ffffff;
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
@@ -114,25 +110,30 @@ footer.docusaurus-mt-lg {
   margin-bottom: 0.5rem !important;
 }
 
-[itemprop='datePublished'] {
+article > div[class="markdown"] a {
+  font-weight: 600;
+}
+
+article > header time {
   color: var(--ifm-color-gray-600);
   font-size: 1rem;
 }
 
-h1[itemprop='headline'] {
+article[class=""] > header h1 {
   font-size: 2.25rem;
   color: var(--ifm-color-primary);
   margin-bottom: 0.5rem !important;
 }
 
-h2[itemprop='headline'] {
+article[class=""] > header h2,
+article[class^="margin"] > header h2 {
   font-size: 1.75rem;
   color: var(--ifm-color-primary);
   margin-bottom: 0.5rem !important;
 }
 
 @media (max-width: 576px) {
-  h1[itemprop='headline'] {
+  article[class=""] > header h1 {
     font-size: 1.75rem;
   }
 }
