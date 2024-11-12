@@ -9,14 +9,16 @@ import type {
 import { themes } from 'prism-react-renderer'
 
 const lightCodeTheme = themes.github
-const darkCodeTheme = themes.dracula
+const darkCodeTheme = themes.oceanicNext
 
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
 
+const title = 'The Tech Bleat'
+
 const config = {
-  title: 'The B(ased)log',
+  title: title,
   favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
@@ -49,8 +51,9 @@ const config = {
       {
         docs: false,
         blog: {
+          blogTitle: title,
           blogDescription:
-            'Stories and discoveries about my journey in tech, product, and a bit of my own interests',
+            'Stories about tech and a bit of my personal journey and interests',
           showReadingTime: false,
           routeBasePath: '/'
         },
@@ -76,7 +79,7 @@ const config = {
     // Replace with your project's social card
     image: 'img/logo.jpg',
     navbar: {
-      title: 'The B(ased)log',
+      title: 'The Tech Bleat',
       logo: {
         alt: 'Logo',
         src: 'img/favicon.svg'
@@ -113,7 +116,8 @@ const config = {
     },
     prism: {
       theme: lightCodeTheme,
-      darkTheme: darkCodeTheme
+      darkTheme: darkCodeTheme,
+      additionalLanguages: ['docker', 'yaml']
     }
   } satisfies ThemeConfig
 } satisfies Config

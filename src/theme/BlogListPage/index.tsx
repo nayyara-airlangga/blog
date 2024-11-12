@@ -35,12 +35,9 @@ function BlogListPageContent(props: Props): JSX.Element {
     <BlogLayout sidebar={sidebar}>
       <div className="mb-3 flex flex-row gap-x-2">
         <img src="/img/favicon.svg" alt="Me" className="w-12 h-auto" />
-        <h1 className="text-4xl mb-0">The B(ased)log</h1>
+        <h1 className="text-4xl mb-0">{metadata.blogTitle}</h1>
       </div>
-      <p className="mb-3">
-        Stories and discoveries about my journey in tech, product, and a bit of
-        my own interests
-      </p>
+      <p className="mb-3">{metadata.blogDescription}</p>
       <hr className="mt-0" />
       <BlogPostItems items={items} />
       <BlogListPaginator metadata={metadata} />
