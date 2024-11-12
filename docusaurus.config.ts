@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
 
-const title = 'The Tech Bleat'
+const title = 'Bleating Edge'
 
 const config = {
   title: title,
@@ -79,7 +79,7 @@ const config = {
     // Replace with your project's social card
     image: 'img/logo.jpg',
     navbar: {
-      title: 'The Tech Bleat',
+      title: 'Bleating Edge',
       logo: {
         alt: 'Logo',
         src: 'img/favicon.svg'
