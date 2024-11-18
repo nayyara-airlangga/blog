@@ -64,6 +64,11 @@ const config = {
     ]
   ],
 
+  markdown: {
+    mermaid: true
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   customFields: {
     repoId: process.env.GH_REPO_ID,
     category: process.env.GH_DISCUSSION_CATEGORY,
