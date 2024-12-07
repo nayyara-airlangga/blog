@@ -1,0 +1,142 @@
+---
+slug: mock-external-services-in-python
+image: https://media.licdn.com/dms/image/C5612AQHHrigcY6Kc7w/article-cover_image-shrink_720_1280/0/1590570437761?e=2147483647&v=beta&t=hfnVsziihfFSGlQjpIaf3yMUt05FhiXhnutG6QmRKUg
+title: How to mock external dependencies to improve your tests in Python
+enableComments: true
+keywords: [mocking, third-party mocks, test-driven development, tdd, testing]
+---
+
+Unit tests typically only test parts of your program in isolation from other units or modules. Some folks like to not mock anything and setup any dependencies before the tests and use them. But what if you're depending on a third party API outside of your control? What if the API you're using is not available at the time? Sometimes you have no choice but to mock the API. In this post, I'll show you how to mock external dependencies so you can make your tests runnable in any condition even without the API itself.
+
+<!-- truncate -->
+
+<center>
+
+![Mocking image](https://media.licdn.com/dms/image/C5612AQHHrigcY6Kc7w/article-cover_image-shrink_720_1280/0/1590570437761?e=2147483647&v=beta&t=hfnVsziihfFSGlQjpIaf3yMUt05FhiXhnutG6QmRKUg)
+
+_No. Not that kind of mocking_
+
+</center>
+
+## Mocks vs Stubs?
+
+Mocks are a kind of test double which is mainly used to verify behaviors. Another kind of test double that some might confuse with mocks are stubs. The difference is that stubs is simply a double used to verify states in a program. To make the distinction clearer, we can think of stubs as objects that mimic the real thing by simply returning predetermined responses and the expected response is always set from the beginning. Mocks are objects that is able to be configured with expectations depending on the test. Stubs are useful when you just care about the returned results. Mocks are great when you want to verify the behavior or interactions such as how it's called, how many times was it called, error assertions, etc.
+
+If you want to read deeper into the differences, I highly suggest taking a look at [this article](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler. The rest of this post will focus on mocks. That said, is there a more common case where mocks can be useful?
+
+_Of course there is. Otherwise, we wouldn't need this article._
+
+## Mimicking what is not yours
+
+If your project is like most projects out there, then chances are you will depend on a lot of third-party services to make it functional. This can be anything from databases, object storages, external APIs, etc. External dependencies is a natural thing to have in most projects that are serious in building a reliable and robust experience. After all, why should you build a database from scratch if you can just use Postgres, a battle-tested and reliable database maintained by others.
+
+:::warning Disclaimer
+
+I am only talking about projects that are going to be used in production. It's almost never a good idea to roll out your own solution unless you are doing something very very very specific or have very specific needs. If you want to learn the internals of these third-party systems, by all means, do it.
+
+:::
+
+That said, if you are writing unit tests in your code, these tests would need to verify the behavior of your system, based on the interactions that the program has with these dependencies. The problem is, if by chance some of these APIs are unavailable or you don't have access to the production environment in CI, how can we test them?
+
+By mocking them of course. If we're testing parts of a program in the way that unit tests are for, the actual implementation of these dependencies shouldn't be our concern. We should be more concerned in verifying if the interactions and behavior of the system is correct based on the specifications and contracts of the dependencies. And that's exactly what mocks are for.
+
+In my project, we had integrations with a few external dependencies. One of the most prominent one is the Slack API as we're basically building a Slack app for the project, which is also where the majority of my work in this project is. Since we used Python, I'm going to show how we can mock these third party dependencies using the classes available in the `unittest` package.
+
+## Mocking in Python
+
+The `unittest` package is baked in the Python standard library so we don't have to install anything to start mocking our code. The classes used for mocking resides in the `mock` module. There are several classes but the one we used the most is the `MagicMock` and `AsyncMock` class. There is base `Mock` class available but to make things easier for us, we decided to use the other ones. `MagicMock` is similar to `Mock` but most of the special methods implicitly called by Python is something that we don't need to worry about; we can just focus on mocking the dependencies actually used in the system. `AsyncMock` is basically `MagicMock` but for async functionalities. Let's see how these work using the examples in my project.
+
+### Using `MagicMock` to mock the behavior of the Slack API
+
+In `pytest` we can define test fixtures to setup dependencies for a test suite. Since we're going to use Slack as the external dependency, we want to mock the `slack_bolt.App` class in this fixture and use it as dependency.
+
+```python
+
+import pytest
+
+from unittest.mock import MagicMock
+from slack_bolt import App
+from slack_sdk import WebClient
+
+
+@pytest.fixture
+def slack_app():
+    mock_slack_app = MagicMock(spec=slack_bolt.App)
+    mock_slack_app.client = MagicMock(spec=WebClient)
+    return mock_slack_app
+```
+
+Pretty simple right? All we have to do was return an instance of `MagicMock` which can be set to our expectations based on the specifications of `slack_bolt.App`. Similarly, the Slack client used by the app is also mocked using `MagicMock`. Next, we want to test out a feature in my project. The feature basically sends a generated response from an AI model to a Slack workspace based on a user's question. I won't show the details on that but one thing is certain: if the system is implemented correctly, it should call the Slack API to post a message using the SDK. This is exactly what mocks are made for. The code would look something like this.
+
+
+```python
+from .slack import SlackAdapter
+# ...
+
+def test_ask(slack_app):
+    slack_adapter = SlackAdapter(slack_app)
+
+    slack_app.client.chat_postMessage = MagicMock(return_value={"ts": "1234567890.123456"})
+
+    response = slack_adapter.ask_v2(
+        channel_id="C12345678",
+        user_id="U12345678",
+        slug="12",
+        question="How are you?",
+    )
+
+    slack_app.client.chat_postMessage.assert_called_once_with(
+        channel="C12345678",
+        text='<@U12345678> asked: \n\n"How are you?" ',
+        metadata={"event_type": "chat-data", "event_payload": {"bot_slug": "12"}},
+    )
+```
+
+Let's break this down a bit. The `slack_app` parameter in the test function basically tell us we want to use the returned value of the fixture `slack_app` we defined earlier which is a mocked Slack app. We mock the `chat_postMessage` method of the Slack app's web client which is the method used to send messages to a Slack workspace to return an arbitrary value that we don't particularly care in this case. We just care about the behavior that surrounds the usage of `chat_postMessage` in the feature. We then call the `ask_v2` function which is the function responsible for the core feature of responding to a question. The values in the parameter are arbitrary but it's important for the last part of the test. The `slack_app.client.chat_postMessage.assert_called_once_with` function is used to verify that the post message function is called exactly once with the parameters we specified earlier. This is what is meant by verifying behavior: we want to check if our system calls the Slack API in a way that it is supposed to.
+
+And just like that, we've verified that this unit of the program works without actually having to connect with the Slack API itself. We just test it based on the contracts, not the implementation which is what unit testing is all about. But this is only a part of the test. We still haven't tested the part where we generate the response yet.
+
+### Using `AsyncMock` to mock your asynchronous calls
+
+In the code, the response generation is actually an asynchronous function in the code. We don't particularly care about its actual correctness when testing the Slack adapter. We only care that its behaving as expected. Here's how it looks.
+
+```python
+from .slack import SlackAdapter
+# ...
+from fastapi import Response
+
+def test_ask(slack_app):
+    slack_adapter = SlackAdapter(slack_app)
+
+    slack_app.client.chat_postMessage = MagicMock(return_value={"ts": "1234567890.123456"})
+
+    slack_adapter.process_chatbot_request = AsyncMock(return_value=Response(status_code=200))
+
+    response = slack_adapter.ask_v2(
+        channel_id="C12345678",
+        user_id="U12345678",
+        slug="12",
+        question="How are you?",
+    )
+
+    slack_app.client.chat_postMessage.assert_called_once_with(
+        channel="C12345678",
+        text='<@U12345678> asked: \n\n"How are you?" ',
+        metadata={"event_type": "chat-data", "event_payload": {"bot_slug": "12"}},
+    )
+    assert response.status_code == 200
+```
+
+Earlier we hadn't yet asserted the response's status code. The status code is available based on the return value of the `process_chatbot_request` method of the Slack adapter. Since this is an async function, we mock this with `AsyncMock`. Notice that the Slack adapter itself isn't mocked, but only one of its function in the test. We mock this because we don't care how it's actually implemented but we care that when we set the expectation of this function returning a 200, the Slack adapter must also do the same. Once again, we are testing the behavior and not the values themselves. With only two classes, I've written a test that verifies the happy path of this feature without needing the hassle of configuring the Slack app directly. The test is now decoupled from the actual implementation which makes it stateless and able to run in any environment in any time.
+
+I believe this should be enough to see just how useful mocks can be in improving the unit tests we write. We can make this easily runnable in a CI system independently of the dependencies themselves. The stateless nature of the tests makes it easy to setup, extend, and maintain as well.
+
+Until next time!
+
+## References
+
+- [TDD: Mocking vs No Mocking](https://the-dext.github.io/TDD_Mocking-vs-No-Mocking/)
+- [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs)
+- [`unittest.mock` -- getting started -- Python 3.13.1 documentation](https://docs.python.org/3/library/unittest.mock-examples.html#unittest-mock-getting-started)
+- [`unittest.mock.MagicMock` -- mock object library -- Python 3.13.1 documentation](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock)
+- [`unittest.mock.AsyncMock` -- mock object library -- Python 3.13.1 documentation](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.AsyncMock)
