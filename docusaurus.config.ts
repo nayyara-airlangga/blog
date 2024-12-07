@@ -122,7 +122,7 @@ const config = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['docker', 'yaml']
+      additionalLanguages: ['docker', 'yaml', 'toml']
     }
   } satisfies ThemeConfig
 } satisfies Config

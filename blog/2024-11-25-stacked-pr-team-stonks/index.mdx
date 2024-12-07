@@ -8,6 +8,8 @@ keywords: [stacked pr, git, teamwork, collaboration, productivity]
 
 If your team uses a strategy like trunk-based development, chances are you make small PRs that get merged and deployed quickly on the trunk. For a lot of cases, you can just wait until a coworker reviews it and you can move on to other tasks in your backlog. But what if your tasks form a dependency chain with each other? You can wait and move on to other tasks and then- oh right. The tasks depends on the previous task. Well, I guess you're stuck. Or are you?
 
+<!-- truncate -->
+
 ## The problems of trunk-based development
 
 If your team is hell bent on using trunk-based development dogmaticly, you're bound to run into problems like the one I described above. Trunk-based development works by creating small and short-lived branches from the trunk and merging them once the PR is approved. It allows teams to move in a fast manner in terms of development and release cycles. However, if the tasks from a dependency chain, forcing to wait and create a branch from the trunk will result in a slowdown instead. Consider the example below:
